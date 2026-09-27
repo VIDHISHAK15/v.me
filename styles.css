@@ -594,9 +594,9 @@ section:not(:last-child){
 }
 .proj-arrow{
   position:absolute;bottom:24px;right:24px;
-  font-family:'VT323',monospace;font-size:20px;
+  font-family:'VT323',monospace;font-size:25px;
   color:color-mix(in srgb, var(--accent) 48%, transparent);
-  transition:all 0.3s;
+  transition:all 0.3s;text-decoration: none;
 }
 .project-card:hover .proj-arrow{color:var(--blue);transform:translate(3px,-3px)}
 
@@ -1410,3 +1410,111 @@ color:color-mix(in srgb, var(--accent) 70%, transparent);letter-spacing:1px;padd
 }
 
 }
+
+/* ======= HERO RIGHT — RETRO SYSTEM OPERATOR WIDGET ======= */
+.op-wrap{ width:min(340px,100%); }
+.op-scene{
+  position:relative;width:340px;height:340px;
+  margin:0 auto;transform-origin:center;
+}
+@media (max-width:1024px){ .op-scene{ transform:scale(0.9); } }
+@media (max-width:768px){ .op-scene{ transform:scale(0.85); } }
+@media (max-width:480px){ .op-scene{ transform:scale(0.7); } }
+ 
+.op-desk{
+  position:absolute;left:20px;right:20px;bottom:70px;height:8px;
+  background:var(--text);opacity:.85;
+}
+.op-leg{
+  position:absolute;bottom:0;width:7px;height:60px;background:var(--muted);
+}
+.op-leg-l{ left:30px; }
+.op-leg-r{ right:30px; }
+ 
+/* CRT monitor */
+.op-monitor{
+  position:absolute;left:90px;bottom:80px;width:160px;height:110px;
+  border:4px solid var(--text);background:#050506;
+}
+.op-stand{
+  position:absolute;left:70px;bottom:-14px;width:20px;height:14px;background:var(--text);
+}
+.op-screen{
+  position:absolute;inset:8px;background:#050506;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.op-track{
+  position:relative;display:flex;align-items:center;gap:20px;height:14px;
+}
+.op-dot{
+  width:6px;height:6px;border-radius:50%;background:var(--blue);
+  opacity:0;transform:scale(.4);
+  transition:opacity .2s ease,transform .2s ease;
+}
+.op-dot.show{ opacity:.9;transform:scale(1); }
+.op-dot.eaten{ opacity:0;transform:scale(.2); }
+ 
+/* Pac-Man — classic solid-circle-with-wedge-bite technique (4 equal borders +
+   border-radius = a circle; making one border transparent punches the mouth
+   out, same shape as the arcade sprite). Works over any background. */
+.op-pac{
+  position:absolute;left:-22px;top:50%;width:0;height:0;
+  border-top:7px solid var(--blue);
+  border-left:7px solid var(--blue);
+  border-bottom:7px solid var(--blue);
+  border-right:7px solid var(--blue);
+  border-radius:7px;
+  transform:translateY(-50%);opacity:0;
+  transition:left linear, opacity .2s ease;
+}
+.op-pac.chomping{ animation:opChomp .4s linear infinite alternate; }
+@keyframes opChomp{
+  0%{ border-right-color:transparent; }
+  100%{ border-right-color:var(--blue); }
+}
+ 
+.op-hello{
+  position:absolute;font-family:'VT323',monospace;font-size:20px;
+  letter-spacing:2px;color:var(--blue);opacity:0;
+  overflow:hidden;white-space:nowrap;width:0;
+}
+.op-hello.show{
+  opacity:1;animation:opHelloReveal .5s steps(6,end) forwards;
+}
+@keyframes opHelloReveal{ to{ width:6ch; } }
+ 
+/* character */
+.op-character{ position:absolute;left:40px;bottom:80px;width:60px;height:70px; }
+.op-head{ position:absolute;top:0;left:14px;width:32px;height:28px;background:var(--text); }
+.op-eye{
+  position:absolute;top:12px;width:4px;height:6px;background:var(--bg);
+  transition:transform .08s linear;
+}
+.op-eye-l{ left:20px; }
+.op-eye-r{ left:32px; }
+.op-eye.op-blink{ animation:opBlinkEye .18s ease; }
+@keyframes opBlinkEye{ 0%,100%{transform:scaleY(1)} 50%{transform:scaleY(.1)} }
+.op-body{
+  position:absolute;top:26px;left:8px;width:44px;height:34px;
+  background:var(--text);opacity:.9;
+}
+.op-arm{
+  position:absolute;top:30px;width:8px;height:20px;background:var(--text);
+  opacity:.9;transform-origin:top center;
+}
+.op-arm-l{ left:2px;animation:opTypeArm 1.4s ease-in-out infinite; }
+.op-arm-r{ left:50px;animation:opTypeArm 1.4s ease-in-out infinite .3s; }
+@keyframes opTypeArm{ 0%,100%{transform:rotate(0)} 50%{transform:rotate(-12deg)} }
+ 
+.op-mug{ position:absolute;left:-14px;bottom:0;width:12px;height:10px;background:var(--blue); }
+.op-steam{
+  position:absolute;left:-11px;bottom:10px;width:2px;height:6px;background:var(--muted);
+  opacity:0;animation:opSteam 3s ease-in infinite;
+}
+.op-steam-2{ left:-8px;animation-delay:1s; }
+@keyframes opSteam{
+  0%{opacity:0;transform:translateY(0) scaleY(1)}
+  20%{opacity:.6}
+  100%{opacity:0;transform:translateY(-16px) scaleY(1.6)}
+}
+ 

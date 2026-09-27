@@ -316,145 +316,91 @@ if (heroTypewriter) {
 
     animateHeroTitle();
 }
-/*use client";
+/* Hero "system operator" widget — eye tracking, idle blink,
+   and the Pac-Man dot-loading → HELLO! sequence on the CRT screen. */
+(function () {
+  const eyeL = document.getElementById('opEyeL');
+  const eyeR = document.getElementById('opEyeR');
+  const screen = document.getElementById('opScreen');
+  const pac = document.getElementById('opPac');
+  const hello = document.getElementById('opHello');
 
-import { useEffect, useRef } from "react";
-import gsap from "gsap";
-import "./BlueprintKeyboard.css";
+  if (!eyeL || !eyeR || !screen || !pac || !hello) return; // widget not on this page
 
-export default function BlueprintKeyboard() {
-  const containerRef = useRef(null);
+  /* ---- eyes follow the cursor, gently ---- */
+  document.addEventListener('mousemove', (e) => {
+    const cx = window.innerWidth / 2;
+    const cy = window.innerHeight / 2;
+    const dx = Math.max(-2, Math.min(2, (e.clientX - cx) / 140));
+    const dy = Math.max(-2, Math.min(2, (e.clientY - cy) / 140));
+    eyeL.style.transform = `translate(${dx}px, ${dy}px)`;
+    eyeR.style.transform = `translate(${dx}px, ${dy}px)`;
+  });
 
-  const keys = [
-    { char: "Q", x: 18, y: 37 },
-    { char: "W", x: 23, y: 37 },
-    { char: "E", x: 28, y: 37 },
-    { char: "R", x: 33, y: 37 },
-    { char: "T", x: 38, y: 37 },
-    { char: "Y", x: 43, y: 37 },
-    { char: "U", x: 48, y: 37 },
-    { char: "I", x: 53, y: 37 },
-    { char: "O", x: 58, y: 37 },
-    { char: "P", x: 63, y: 37 },
+  /* ---- idle blink, randomized timing so it doesn't feel mechanical ---- */
+  function blink() {
+    [eyeL, eyeR].forEach((el) => el.classList.add('op-blink'));
+    setTimeout(() => {
+      [eyeL, eyeR].forEach((el) => el.classList.remove('op-blink'));
+    }, 180);
+    setTimeout(blink, 2500 + Math.random() * 3000);
+  }
+  setTimeout(blink, 1500);
 
-    { char: "A", x: 20, y: 47 },
-    { char: "S", x: 25, y: 47 },
-    { char: "D", x: 30, y: 47 },
-    { char: "F", x: 35, y: 47 },
-    { char: "G", x: 40, y: 47 },
-    { char: "H", x: 45, y: 47 },
-    { char: "J", x: 50, y: 47 },
-    { char: "K", x: 55, y: 47 },
-    { char: "L", x: 60, y: 47 },
+  /* ---- Pac-Man loading loop: dots 1-4 appear, pac-man eats them, HELLO! ---- */
+  const track = screen.querySelector('.op-track');
+  const dots = Array.from(track.querySelectorAll('.op-dot'));
 
-    { char: "Z", x: 22, y: 57 },
-    { char: "X", x: 27, y: 57 },
-    { char: "C", x: 32, y: 57 },
-    { char: "V", x: 37, y: 57 },
-    { char: "B", x: 42, y: 57 },
-    { char: "N", x: 47, y: 57 },
-    { char: "M", x: 52, y: 57 },
+  function runCycle() {
+    // reset state
+    dots.forEach((d) => d.classList.remove('show', 'eaten'));
+    hello.classList.remove('show');
+    pac.style.transition = 'none';
+    pac.style.left = (dots[0].offsetLeft - 24) + 'px';
+    pac.style.opacity = '0';
+    pac.classList.remove('chomping');
+    void pac.offsetWidth; // force reflow so the next transition applies cleanly
+    pac.style.transition = '';
 
-    { char: "1", x: 16, y: 27 },
-    { char: "2", x: 21, y: 27 },
-    { char: "3", x: 26, y: 27 },
-    { char: "4", x: 31, y: 27 },
-    { char: "5", x: 36, y: 27 },
-
-    { char: "@", x: 58, y: 27 },
-    { char: "#", x: 63, y: 27 },
-    { char: "$", x: 68, y: 27 }
-  ];
-
-  useEffect(() => {
-    const labels =
-      containerRef.current.querySelectorAll(".key-char");
-
-    gsap.set(labels, {
-      opacity: 0.4
+    // phase 1 — dots appear one by one
+    const dotStagger = 160;
+    dots.forEach((d, i) => {
+      setTimeout(() => d.classList.add('show'), 200 + i * dotStagger);
     });
 
-    gsap.to(labels, {
-      opacity: 1,
-      duration: 1.8,
-      repeat: -1,
-      yoyo: true,
-      ease: "power1.inOut",
+    const dotsSettleAt = 200 + dots.length * dotStagger + 300;
 
-      stagger: {
-        each: 0.05,
-        from: "random"
-      }
-    });
+    // phase 2 — pac-man chomps across
+    setTimeout(() => {
+      pac.style.opacity = '1';
+      pac.classList.add('chomping');
 
-    gsap.to(labels, {
-      textShadow:
-        "0 0 8px rgba(74,103,255,0.8)",
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
+      const travelMs = 1100; // was 900 — slowed by 0.2s per feedback
+      pac.style.transitionDuration = travelMs + 'ms';
+      pac.style.left = (track.offsetWidth + 12) + 'px';
 
-      stagger: {
-        each: 0.08,
-        from: "random"
-      }
-    });
-
-    gsap.to(labels, {
-      scale: 1.08,
-      duration: 2,
-      repeat: -1,
-      yoyo: true,
-
-      stagger: {
-        each: 0.03,
-        from: "random"
-      }
-    });
-    gsap.to(".key-char", {
-        opacity: () =>
-          gsap.utils.random(
-            0.4,
-            1
-          ),
-      
-        duration: () =>
-          gsap.utils.random(
-            1,
-            3
-          ),
-      
-        repeat: -1,
-      
-        yoyo: true,
-      
-        ease: "sine.inOut"
+      dots.forEach((d, i) => {
+        const arriveAt = (travelMs / dots.length) * (i + 1) - 80;
+        setTimeout(() => {
+          d.classList.remove('show');
+          d.classList.add('eaten');
+        }, Math.max(0, arriveAt));
       });
 
-  }, []);
+      // phase 3 — HELLO! appears
+      setTimeout(() => {
+        pac.classList.remove('chomping');
+        pac.style.opacity = '0';
+        hello.classList.add('show');
 
-  return (
-    <div
-      ref={containerRef}
-      className="keyboard-wrapper"
-    >
-      <img
-        src="/keyboard.png"
-        alt="keyboard"
-        className="keyboard-image"
-      />
+        // phase 4 — hold, then reset and loop
+        setTimeout(() => {
+          hello.classList.remove('show');
+          setTimeout(runCycle, 500);
+        }, 2400);
+      }, travelMs + 150);
+    }, dotsSettleAt);
+  }
 
-      {keys.map((key, i) => (
-        <span
-          key={i}
-          className="key-char"
-          style={{
-            left: `${key.x}%`,
-            top: `${key.y}%`
-          }}
-        >
-          {key.char}
-        </span>
-      ))}
-    </div>
-  );*/
+  runCycle();
+})();

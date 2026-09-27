@@ -124,8 +124,44 @@
     <a href="Vidhi%20copy.pdf" class="resume-badge" target="_blank" rel="noopener noreferrer">⊞ DOWNLOAD TECHNICAL SPEC (RÉSUMÉ)</a>
   </div>
   <div class="hero-right">
-    <div class="hero-svg-wrap">
-      <a href="avatar.png"> </a>
+    <div class="hero-svg-wrap op-wrap">
+      <div class="op-scene">
+        <div class="op-desk"></div>
+        <div class="op-leg op-leg-l"></div>
+        <div class="op-leg op-leg-r"></div>
+
+        <div class="op-monitor">
+          <div class="op-stand"></div>
+          <div class="op-screen" id="opScreen">
+            <div class="op-track">
+              <span class="op-dot"></span>
+              <span class="op-dot"></span>
+              <span class="op-dot"></span>
+              <span class="op-dot"></span>
+              <div class="op-pac" id="opPac"></div>
+            </div>
+            <div class="op-hello" id="opHello">HELLO!</div>
+          </div>
+        </div>
+
+        <div class="op-character">
+          <div class="op-head">
+            <span class="op-eye op-eye-l" id="opEyeL"></span>
+            <span class="op-eye op-eye-r" id="opEyeR"></span>
+          </div>
+          <div class="op-body"></div>
+          <div class="op-arm op-arm-l"></div>
+          <div class="op-arm op-arm-r"></div>
+          <div class="op-mug"></div>
+          <div class="op-steam"></div>
+          <div class="op-steam op-steam-2"></div>
+        </div>
+      </div>
+      <div class="hero-annotation top-right">PROCESSING UNIT: ACTIVE</div>
+    </div>
+  </div>
+
+
         </defs>
         <!-- Grid lines -->
         <line x1="0" y1="60" x2="420" y2="60" stroke="rgba(92,115,255,0.08)" stroke-width="0.5"/>
@@ -141,69 +177,7 @@
         <line x1="240" y1="0" x2="240" y2="480" stroke="rgba(92,115,255,0.08)" stroke-width="0.5"/>
         <line x1="300" y1="0" x2="300" y2="480" stroke="rgba(92,115,255,0.08)" stroke-width="0.5"/>
         <line x1="360" y1="0" x2="360" y2="480" stroke="rgba(92,115,255,0.08)" stroke-width="0.5"/>
-        <!-- Head outline -->
-        <!--<circle cx="210" cy="80" r="44" stroke="rgba(92,115,255,0.6)" stroke-width="0.8" fill="none"/>
-         Brain circuit inside head 
-        <path d="M188,70 Q200,60 210,68 Q220,60 232,70 Q236,80 228,88 Q220,96 210,90 Q200,96 192,88 Q184,80 188,70Z" stroke="rgba(92,115,255,0.3)" stroke-width="0.5" fill="none"/>
-        <circle cx="210" cy="78" r="3" stroke="rgba(92,115,255,0.5)" stroke-width="0.5" fill="none"/>
-        <line x1="210" y1="75" x2="210" y2="68" stroke="rgba(92,115,255,0.3)" stroke-width="0.5"/>
-        <line x1="207" y1="78" x2="200" y2="78" stroke="rgba(92,115,255,0.3)" stroke-width="0.5"/>
-        <line x1="213" y1="78" x2="220" y2="78" stroke="rgba(92,115,255,0.3)" stroke-width="0.5"/>
-         Shoulder line 
-        <line x1="130" y1="152" x2="290" y2="152" stroke="rgba(92,115,255,0.5)" stroke-width="0.8"/>
-        Torso outline -->
-        <!--<path d="M155,152 L145,280 L180,290 L210,285 L240,290 L275,280 L265,152Z" stroke="rgba(92,115,255,0.5)" stroke-width="0.8" fill="none"/>
-         Internal systems grid in torso -->
-        <!--line x1="155" y1="185" x2="265" y2="185" stroke="rgba(92,115,255,0.12)" stroke-width="0.5" stroke-dasharray="4,4"/>
-        <line x1="155" y1="218" x2="265" y2="218" stroke="rgba(92,115,255,0.12)" stroke-width="0.5" stroke-dasharray="4,4"/>
-        <line x1="155" y1="251" x2="265" y2="251" stroke="rgba(92,115,255,0.12)" stroke-width="0.5" stroke-dasharray="4,4"/>
-       AI core in chest -->
-        <!--<rect x="190" y="172" width="40" height="40" stroke="rgba(92,115,255,0.5)" stroke-width="0.8" fill="none"/>
-        <rect x="195" y="177" width="30" height="30" stroke="rgba(92,115,255,0.25)" stroke-width="0.5" fill="none"/>
-        <text x="210" y="195" text-anchor="middle" font-family="VT323" font-size="9" fill="rgba(92,115,255,0.5)">AI CORE</text>
-         Arms -->
-        <!--<line x1="155" y1="160" x2="110" y2="240" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        <line x1="110" y1="240" x2="95" y2="300" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        <line x1="265" y1="160" x2="310" y2="240" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        <line x1="310" y1="240" x2="325" y2="300" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-         Legs -->
-        <!--<line x1="180" y1="288" x2="168" y2="400" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        <line x1="168" y1="400" x2="162" y2="460" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        <line x1="240" y1="288" x2="252" y2="400" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        <line x1="252" y1="400" x2="258" y2="460" stroke="rgba(92,115,255,0.4)" stroke-width="0.8"/>
-        ANNOTATION LINES — visible on hover via CSS -->
-        <!-- Head annotation -->
-        <!--<line class="ann-line" x1="256" y1="58" x2="320" y2="40" stroke="rgba(92,115,255,0)" stroke-width="0.5" stroke-dasharray="3,3"/>
-        Torso annotation -->
-        <!--<line class="ann-line" x1="265" y1="210" x2="348" y2="210" stroke="rgba(92,115,255,0)" stroke-width="0.5" stroke-dasharray="3,3"/>
         
-        <--<line x1="70" y1="36" x2="70" y2="460" stroke="rgba(92,115,255,0.12)" stroke-width="0.5"/>
-        <line x1="66" y1="36" x2="74" y2="36" stroke="rgba(92,115,255,0.2)" stroke-width="0.5"/>
-        <line x1="66" y1="460" x2="74" y2="460" stroke="rgba(92,115,255,0.2)" stroke-width="0.5"/>
-        <text x="55" y="250" text-anchor="middle" font-family="VT323" font-size="10" fill="rgba(92,115,255,0.3)" transform="rotate(-90,55,250)">HEIGHT: 1.0 UNIT</text>
-         Callout labels -->
-        <!--<line x1="256" y1="60" x2="298" y2="48" stroke="rgba(92,115,255,0.3)" stroke-width="0.5" stroke-dasharray="2,3"/>
-        <text x="302" y="46" font-family="VT323" font-size="10" fill="rgba(92,115,255,0.5)">NEURAL PROC.</text>
-        <line x1="266" y1="195" x2="350" y2="195" stroke="rgba(92,115,255,0.3)" stroke-width="0.5" stroke-dasharray="2,3"/>
-        <text x="354" y="198" font-family="VT323" font-size="10" fill="rgba(92,115,255,0.5)">AI / ML CORE</text>
-        <line x1="315" y1="268" x2="358" y2="268" stroke="rgba(92,115,255,0.3)" stroke-width="0.5" stroke-dasharray="2,3"/>
-        <text x="362" y="271" font-family="VT323" font-size="10" fill="rgba(92,115,255,0.5)">DATA PIPELINE</text>
-        <line x1="103" y1="268" x2="46" y2="268" stroke="rgba(92,115,255,0.3)" stroke-width="0.5" stroke-dasharray="2,3"/>
-        <text x="8" y="271" font-family="VT323" font-size="10" fill="rgba(92,115,255,0.5)">DESIGN SYS.</text>
-         Crosshair at center mass -->
-        <!--<circle cx="210" cy="240" r="16" stroke="rgba(92,115,255,0.15)" stroke-width="0.5" fill="none"/>
-        <line x1="194" y1="240" x2="200" y2="240" stroke="rgba(92,115,255,0.2)" stroke-width="0.5"/>
-        <line x1="220" y1="240" x2="226" y2="240" stroke="rgba(92,115,255,0.2)" stroke-width="0.5"/>
-        <line x1="210" y1="224" x2="210" y2="230" stroke="rgba(92,115,255,0.2)" stroke-width="0.5"/>
-        <line x1="210" y1="250" x2="210" y2="256" stroke="rgba(92,115,255,0.2)" stroke-width="0.5"/>
-       Figure label -->
-       <!--svg>
-        <text x="210" y="476" text-anchor="middle" font-family="VT323" font-size="11" fill="rgba(92,115,255,0.4)" letter-spacing="2">FIG. 0.1 — SUBJECT OVERVIEW</text>
-      </!--svg>
-      <--<div class="hero-annotation top-right">PROCESSING UNIT: ACTIVE</div>-->
-      <!--<div class="hero-annotation bottom-right">OUTPUT: OPEN TO WORK</div>-->
-    </div>
-  </div>
 
   <div class="scroll-hint">▼ SCROLL TO EXPLORE</div>
 </section>
@@ -350,47 +324,42 @@
 
   <div class="projects-grid">
     <div class="project-card">
-      <div class="proj-num">P.001 — AI SYSTEMS</div>
-      <div class="proj-title">MULTI-MODAL<br>REASONING ENGINE</div>
-      <p class="proj-desc">An LLM pipeline that processes documents, images, and structured data to generate analyst-grade summaries for enterprise clients.</p>
-      <div class="proj-stack">PYTHON · LANGCHAIN · GPT-4V · FASTAPI</div>
-      <div class="proj-arrow">↗</div>
-    </div>
+  <div class="proj-num">P.001 — NLP </div>
+  <div class="proj-title">Semantic<br>Book Recommender</div>
+  <p class="proj-desc"> Built a semantic book recommendation engine that understands mood, tone, genre, and natural-language descriptions to deliver personalized fiction and non-fiction recommendations, powered by zero-shot classification.</p>
+  <div class="proj-stack">HUGGING FACE · CHROMA DB · LANGCHAIN · PYTHON · NUMPY · PANDAS · JUPYTER NB</div>
+  <a class="proj-arrow"
+    href="https://github.com/VIDHISHAK15/semantic-recommender"
+    target="blank" rel="noopener noreferrer">↗</a>
+  </div>
     <div class="project-card">
-      <div class="proj-num">P.002 — DATA PRODUCT</div>
-      <div class="proj-title">REAL-TIME<br>ANOMALY DETECTOR</div>
-      <p class="proj-desc">Streaming anomaly detection on IoT sensor data. Processes 50K events/sec with sub-100ms latency alerts and visual triage dashboard.</p>
-      <div class="proj-stack">KAFKA · FLINK · REACT · D3.JS</div>
-      <div class="proj-arrow">↗</div>
-    </div>
+  <div class="proj-num">P.002 — 3D </div>
+  <div class="proj-title">LEGO<br>EDITOR</div>
+  <p class="proj-desc">Built a playful digital LEGO editor as an interactive sandbox for experimenting with custom brick layouts, visualizing builds, and sketching blueprints before assembling physical sets. Created as a fun vibecoding experiment to explore 3D spatial interactions and creative tooling.
+  </p>
+  <div class="proj-stack">FIGMA · THREEJS · HTML </div>
+  <a class="proj-arrow"d
+    href="https://github.com/VIDHISHAK15/Lego-Editor"
+    target="blank" rel="noopener noreferrer">↗</a>
+  </div>
+  <div class="project-card">
+  <div class="proj-num">P.003 </div>
+  <div class="proj-title">TAMAGOTCHI<br>widget</div>
+  <p class="proj-desc">Built a Tamagotchi-inspired desktop companion designed to make work sessions more enjoyable through personalized motivational quotes. Preloaded with a curated quote library and wrapped in a playful, aesthetic interface, it offers a small moment of encouragement whenever you need it. A fun side project born from wanting a desktop companion that felt more personal, expressive and alive than typical productivity widgets.
+  </p>
+  <div class="proj-stack">SWIFT · WidgetKit · OS</div>
+  <a class="proj-arrow"
+    href="https://github.com/VIDHISHAK15/tamagotchi_widget"
+    target="blank" rel="noopener noreferrer">↗</a>
+  </div>
     <div class="project-card">
-      <div class="proj-num">P.003 — </div>
-      <div class="proj-title">LEGO<br>EDITOR</div>
-      <p class="proj-desc">Component library and design token system built specifically for AI product interfaces — handling states, uncertainty, and streaming responses.</p>
-      <div class="proj-stack">FIGMA · REACT · STORYBOOK · TS</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.004 — NLP</div>
-      <div class="proj-title">SEMANTIC SEARCH<br>INFRASTRUCTURE</div>
-      <p class="proj-desc">Vector search over a 2M document corpus. Custom embedding fine-tuning on domain data improved retrieval precision by 34%.</p>
-      <div class="proj-stack">PGVECTOR · SENTENCE-TRANSFORMERS · ELASTIC</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.005 — ANALYTICS</div>
-      <div class="proj-title">BEHAVIORAL<br>ATTRIBUTION MODEL</div>
-      <p class="proj-desc">Multi-touch attribution model for a fintech product. Replaced last-click attribution and improved marketing ROI measurement accuracy.</p>
-      <div class="proj-stack">DBT · BIGQUERY · LOOKER · R</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.006 — CREATIVE TECH</div>
-      <div class="proj-title">GENERATIVE<br>VISUAL SYSTEM</div>
-      <p class="proj-desc">Diffusion-model pipeline that generates brand-consistent product visuals. Reduced design iteration cycles from days to minutes.</p>
-      <div class="proj-stack">STABLE DIFFUSION · COMFYUI · LORA · TS</div>
-      <div class="proj-arrow">↗</div>
-    </div>
+  <div class="proj-num">P.004 —</div>
+  <div class="proj-title">Landsat<br>Temperature</div>
+  <p class="proj-desc"></p>
+  <div class="proj-stack">PYTHON · GEE · USGS · PANDAS · PLOTLY · STREAMLIT · NUMPY</div>
+  <a class="Research project investigating the relationship between Land Use/Land Cover (LULC), Land Surface Temperature (LST), and Urban Heat Islands (UHI), with a focus on their implications for climate change and urban sustainability. The study identifies heat-risk hotspots and proposes data-driven mitigation strategies and recommendations for sustainable urban planning and development. The research was published in Springer.   href="https://github.com/VIDHISHAK15/Landsat-Temperature"
+    target="blank" rel="noopener noreferrer">↗</a>
+  </div>
   </div>
 </section>
 
@@ -529,7 +498,7 @@
       <div>
         <div class="writing-title">Paradox of choice</div>
         <p class="writing-excerpt"></p>
-        <span class="writing-tag">TECHNICAL</span>
+        <span class="writing-tag">SUBSTACK</span>
       </div>
       <div class="reading-time">15 MIN READ ↗</div></div>
   </div>
@@ -538,71 +507,14 @@
       <div>
         <div class="writing-title">Build . Break . Better</div>
         <p class="writing-excerpt"></p>
-        <span class="writing-tag">TECHNICAL</span>
+        <span class="writing-tag">SUBSTACK</span>
       </div>
       <div class="reading-time">15 MIN READ ↗</div></div>
   </div>
 
 </section>
 
-<!--Volunteering -->
-<section id="volunteer">
-  <div class="corner-tl"></div><div class="corner-tr"></div>
-  <div class="corner-bl"></div><div class="corner-br"></div>
-  <span class="sec-label">SECTION 03 — ARTEFACT REPOSITORY</span>
-  <span class="sec-num">FIG.3.0</span>
 
-  <div class="sec-header">
-    <h2 class="sec-title">Volunteer</h2>
-    <span class="sec-caption">Learning & Leadership</span>
-  </div>
-  <div class="sec-rule"></div>
-
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="proj-num">P.001 — AI SYSTEMS</div>
-      <div class="proj-title">MULTI-MODAL<br>REASONING ENGINE</div>
-      <p class="proj-desc">An LLM pipeline that processes documents, images, and structured data to generate analyst-grade summaries for enterprise clients.</p>
-      <div class="proj-stack">PYTHON · LANGCHAIN · GPT-4V · FASTAPI</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.002 — DATA PRODUCT</div>
-      <div class="proj-title">REAL-TIME<br>ANOMALY DETECTOR</div>
-      <p class="proj-desc">Streaming anomaly detection on IoT sensor data. Processes 50K events/sec with sub-100ms latency alerts and visual triage dashboard.</p>
-      <div class="proj-stack">KAFKA · FLINK · REACT · D3.JS</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.003 — </div>
-      <div class="proj-title">LEGO<br>EDITOR</div>
-      <p class="proj-desc">Component library and design token system built specifically for AI product interfaces — handling states, uncertainty, and streaming responses.</p>
-      <div class="proj-stack">FIGMA · REACT · STORYBOOK · TS</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.004 — NLP</div>
-      <div class="proj-title">SEMANTIC SEARCH<br>INFRASTRUCTURE</div>
-      <p class="proj-desc">Vector search over a 2M document corpus. Custom embedding fine-tuning on domain data improved retrieval precision by 34%.</p>
-      <div class="proj-stack">PGVECTOR · SENTENCE-TRANSFORMERS · ELASTIC</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.005 — ANALYTICS</div>
-      <div class="proj-title">BEHAVIORAL<br>ATTRIBUTION MODEL</div>
-      <p class="proj-desc">Multi-touch attribution model for a fintech product. Replaced last-click attribution and improved marketing ROI measurement accuracy.</p>
-      <div class="proj-stack">DBT · BIGQUERY · LOOKER · R</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-    <div class="project-card">
-      <div class="proj-num">P.006 — CREATIVE TECH</div>
-      <div class="proj-title">GENERATIVE<br>VISUAL SYSTEM</div>
-      <p class="proj-desc">Diffusion-model pipeline that generates brand-consistent product visuals. Reduced design iteration cycles from days to minutes.</p>
-      <div class="proj-stack">STABLE DIFFUSION · COMFYUI · LORA · TS</div>
-      <div class="proj-arrow">↗</div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== AFTER 9 TO 5 ===== -->
 <section id="after">
@@ -620,7 +532,6 @@
   <!--div class="after-grid"-->
     <div class="after-column">
       <h3>// PHOTOGRAPHY LOG</h3>
-      <p class="after-paragraph">I shoot on film. Mostly architecture, found geometry, and moments where the light does something unexpected. Photography taught me to see compositions before I see content — a skill that transferred directly into design.</p>
       <div class="photo-flow">
 
     <div class="flow-card active">
@@ -683,14 +594,13 @@
         </div>
     </div>
 </div>
+<br>
 
-
-
-   <br><br> <p class="after-paragraph">I shoot on film. Mostly architecture, found geometry, and moments where the light does something unexpected. Photography taught me to see compositions before I see content — a skill that transferred directly into design.</p>
+<p class="after-paragraph">I shoot on film. Mostly architecture, geometry and moments where the light does something unexpected. </p>
       
 
 
-    </div>
+    
     <!--div class="after-column">
       <h3>// DOODLE ARCHIVE</h3>
       <p class="after-paragraph">Rough sketches, system maps, and diagrams I made thinking through problems. Most never shipped. All were useful.</p>
@@ -719,7 +629,6 @@
         <--svg>
       </div>
     </div-->
-  </div->
 </section>
 
 <!-- ===== CONTACT ===== -->
